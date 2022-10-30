@@ -1,0 +1,15 @@
+food_venv/
+ingred_entry.py
+update_ingred.py
+venv_new/
+server.py
+.DS_Store
+__pycache__/
+firestore_mannual_manage
+venv_new1/
+rassoi-767af-firebase-adminsdk-q09j7-a66f37f511.json
+rassoi-767af-gcp2firebase.json
+rassoi-767af-google_storage.json
+.streamlit/secrets.toml
+venv/
+rassoi-767af-firebase-adminsdk-q09j7-a66f37f511.json
