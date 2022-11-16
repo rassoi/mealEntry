@@ -71,7 +71,7 @@ def app():
         for doc in recipies:
             # print(f'{doc.id}')
             doc_id = doc.id
-            recipe_list.append(doc_id["categoryName"])
+            recipe_list.append(f'{doc.id}')
 
         return recipe_list
 
