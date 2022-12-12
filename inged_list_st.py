@@ -10,6 +10,7 @@ from upload_images import upload_recipe, upload_ingred
 import streamlit as st
 import streamlit_authenticator as stauth
 from google.oauth2 import service_account
+import datetime
 st.set_page_config(layout="wide")
 key_dict = json.loads(st.secrets["textkey1"])
 creds = service_account.Credentials.from_service_account_info(key_dict)
@@ -86,7 +87,10 @@ def app():
 
         categories_collection = db.collection(u'categories').stream()
         for doc in categories_collection:
-            categories_list.append(f'{doc.id}')
+
+            categoryName = db.collection(u'categories').document(
+                doc.id).get().to_dict()
+            categories_list.append(categoryName["categoryName"])
         # print(response['name'])
         return categories_list
 
@@ -175,7 +179,7 @@ def app():
             #     st.session_state.submit_meal_name = True
             #     print("------", st.session_state.submit_meal_name)
             # else:
-
+            dateNow = datetime.datetime.now()
             if st.button("Submit Meal Name") == True and len(meal_id) > 1 and len(meal_name) > 1 and len(meal_name_hindi) > 1 or st.session_state.meal_submitted_flag == 1:
                 # Uplad meal data
                 st.session_state.meal_submitted_flag = 1
